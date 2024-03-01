@@ -1,1 +1,47 @@
-"Content" 
+## Problem Statement:
+### Given a matrix of M * N elements (M rows, N columns), return all elements of the matrix in spiral order.
+
+## Code
+public class Solution {
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    public ArrayList<Integer> spiralOrder(final List<ArrayList<Integer>> A) {
+        int top=0;
+        int bottom=A.size()-1;
+        int left=0;
+        int right= A.get(0).size()-1;
+        ArrayList<Integer> res= new ArrayList<>();
+        while(left<= right && top<=bottom){
+            for(int i=left;i<=right;i++){
+                res.add(A.get(top).get(i));
+            }
+            
+            top++;
+            
+            for(int i= top; i<=bottom;i++){
+                res.add(A.get(i).get(right));
+            }
+            
+            right--;
+            
+            if(left<= right && top<=bottom){
+                for(int i=right;i>=left;i--){
+                    res.add(A.get(bottom).get(i));
+                }
+                
+                bottom--;
+            
+            
+            
+                for(int i= bottom;i>=top;i--){
+                    res.add(A.get(i).get(left));
+                }
+                
+                left++;
+            
+            
+            
+        }
+        }
+        return res;
+    }
+}
